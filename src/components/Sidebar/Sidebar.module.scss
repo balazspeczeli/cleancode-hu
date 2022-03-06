@@ -1,5 +1,8 @@
 .component {
   width: 270px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
   background-color: var(--color-background-sidebar);
   display: flex;
   flex-direction: column;
