@@ -1,0 +1,11 @@
+.component {
+  width: 100%;
+  background-color: var(--color-background-main);
+  padding: var(--default-padding);
+
+  h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0;
+  }
+}

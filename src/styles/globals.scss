@@ -1,0 +1,27 @@
+:root {
+  --default-padding: 25px;
+  --color-background: #dddddd;
+  --color-background-main: #ffffff;
+  --color-background-sidebar: #f3f3f3;
+  --color-text: #000000;
+  --color-link: #2b5be0;
+  --color-sidebar-border: #e2e2e2;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--color-background);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
