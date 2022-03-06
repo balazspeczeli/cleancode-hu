@@ -2,8 +2,8 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './Sidebar.module.scss';
 
-import HomeIcon from '../../assets/icons/home.svg';
-import GitHubIcon from '../../assets/icons/github.svg';
+import HomeIcon from 'assets/icons/home.svg';
+import GitHubIcon from 'assets/icons/github.svg';
 
 type Link = {
   text: string;

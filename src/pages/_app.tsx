@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import '../styles/globals.scss';
+import 'styles/globals.scss';
 
-import { Container, Main, Sidebar } from '../components';
+import { Container, Main, Sidebar } from 'components';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { asPath } = useRouter();

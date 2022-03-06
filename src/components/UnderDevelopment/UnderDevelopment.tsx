@@ -1,5 +1,5 @@
 import styles from './UnderDevelopment.module.scss';
-import Illustration from '../../assets/illustration.svg';
+import Illustration from 'assets/illustration.svg';
 
 export const UnderDevelopment = () => {
   return (
