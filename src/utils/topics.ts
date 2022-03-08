@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { serialize } from 'next-mdx-remote/serialize';
 import matter from 'gray-matter';
+import rehypePrism from '@mapbox/rehype-prism';
 
 const contentDirectory = path.join(process.cwd(), 'src', 'content');
 const topicsDirectory = path.join(contentDirectory, 'topics');
@@ -23,6 +24,10 @@ export const getTopicContent = async (topicId: string) => {
   const fullPath = path.join(topicsDirectory, topicId + '.mdx');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { content } = matter(fileContents);
-  const { compiledSource } = await serialize(content);
+  const { compiledSource } = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [rehypePrism],
+    },
+  });
   return compiledSource;
 };

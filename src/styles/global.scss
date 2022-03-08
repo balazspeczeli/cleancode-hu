@@ -6,6 +6,8 @@
   --color-text: #000000;
   --color-link: #2b5be0;
   --color-sidebar-border: #e2e2e2;
+  --font-family-code: 'Consolas', 'Bitstream Vera Sans Mono', 'Courier New',
+    Courier, monospace;
 }
 
 body {
@@ -25,4 +27,8 @@ body {
 a {
   color: var(--color-link);
   text-decoration: none;
+}
+
+code {
+  font-family: var(--font-family-code);
 }
