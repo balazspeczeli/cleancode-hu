@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import { Container, Main, Sidebar } from 'components';
+import { Container, Main, Sidebar } from 'components/layout';
 import meta from 'content/meta.json';
 import 'styles/global.scss';
 import 'styles/prism-vs.scss';

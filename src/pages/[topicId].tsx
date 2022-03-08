@@ -6,8 +6,7 @@ import {
   getTopicsAvailable,
   getTopicTitle,
 } from 'utils/topics';
-import { CodeSnippet } from 'components/CodeSnippet';
-import { Notification } from 'components/Notification';
+import { CodeSnippet, Notification } from 'components/ui';
 
 const components = {
   CodeSnippet,
