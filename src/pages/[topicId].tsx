@@ -6,6 +6,11 @@ import {
   getTopicsAvailable,
   getTopicTitle,
 } from 'utils/topics';
+import { CodeSnippet } from 'components/CodeSnippet';
+
+const components = {
+  CodeSnippet,
+};
 
 type TopicPageProps = {
   title: string;
@@ -16,7 +21,7 @@ const TopicPage = ({ title, content }: TopicPageProps) => {
   return (
     <>
       <h1>{title}</h1>
-      <MDXRemote compiledSource={content} />
+      <MDXRemote compiledSource={content} components={components} />
     </>
   );
 };
