@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
 import { ParsedUrlQuery } from 'querystring';
 import {
   getTopicContent,
@@ -15,7 +16,7 @@ const TopicPage = ({ title, content }: TopicPageProps) => {
   return (
     <>
       <h1>{title}</h1>
-      {content}
+      <MDXRemote compiledSource={content} />
     </>
   );
 };
@@ -39,7 +40,7 @@ interface IParams extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { topicId } = context.params as IParams;
   const title = getTopicTitle(topicId);
-  const content = getTopicContent(topicId);
+  const content = await getTopicContent(topicId);
 
   return {
     props: {

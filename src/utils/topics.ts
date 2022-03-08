@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { serialize } from 'next-mdx-remote/serialize';
+import matter from 'gray-matter';
 
 const contentDirectory = path.join(process.cwd(), 'src', 'content');
 const topicsDirectory = path.join(contentDirectory, 'topics');
@@ -17,8 +19,10 @@ export const getTopicTitle = (topicId: string) => {
   return pages[topicId];
 };
 
-export const getTopicContent = (topicId: string) => {
-  const fullPath = path.join(topicsDirectory, topicId + '.md');
+export const getTopicContent = async (topicId: string) => {
+  const fullPath = path.join(topicsDirectory, topicId + '.mdx');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  return fileContents;
+  const { content } = matter(fileContents);
+  const { compiledSource } = await serialize(content);
+  return compiledSource;
 };
