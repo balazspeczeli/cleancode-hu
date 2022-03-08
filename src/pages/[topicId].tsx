@@ -7,9 +7,11 @@ import {
   getTopicTitle,
 } from 'utils/topics';
 import { CodeSnippet } from 'components/CodeSnippet';
+import { Notification } from 'components/Notification';
 
 const components = {
   CodeSnippet,
+  Notification,
 };
 
 type TopicPageProps = {
