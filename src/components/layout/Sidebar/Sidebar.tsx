@@ -1,69 +1,68 @@
-import Link from 'next/link';
 import classNames from 'classnames';
+import { ExternalLink, Icon, InternalLink } from 'components/ui';
+import topics from 'content/topics.json';
+import pages from 'content/pages.json';
 import styles from './Sidebar.module.scss';
 
-import HomeIcon from 'assets/icons/home.svg';
-import GitHubIcon from 'assets/icons/github.svg';
+const sidebarTopics = topics.map((topic) => ({
+  id: topic,
+  text: pages[topic as keyof typeof pages],
+}));
 
-type Link = {
-  text: string;
-  icon: JSX.Element;
-  href: string;
-};
-
-type InternalLinkProps = Link & {
+type PrimaryMenuProps = {
   currentPath: string;
 };
 
-const InternalLink = ({ text, icon, href, currentPath }: InternalLinkProps) => (
-  <Link href={href}>
-    <a
-      className={classNames({
-        [styles.active]: href === currentPath,
-      })}
-    >
-      {icon}
-      {text}
-    </a>
-  </Link>
+const PrimaryMenu = ({ currentPath }: PrimaryMenuProps) => (
+  <ul className={styles['primary-menu']}>
+    <li>
+      <InternalLink
+        href="/"
+        className={classNames({
+          [styles.active]: '/' === currentPath,
+        })}
+      >
+        <Icon name="home" />
+        Főoldal
+      </InternalLink>
+    </li>
+    {sidebarTopics.map(({ id, text }) => (
+      <li key={id}>
+        <InternalLink
+          href={'/' + id}
+          className={classNames({
+            [styles.active]: '/' + id === currentPath,
+          })}
+        >
+          <Icon name={id} />
+          {text}
+        </InternalLink>
+      </li>
+    ))}
+  </ul>
 );
 
-type ExternalLinkProps = Link;
-
-const ExternalLink = ({ text, icon, href }: ExternalLinkProps) => (
-  <a href={href} target="_blank" rel="noreferrer">
-    {icon}
-    {text}
-  </a>
+const SecondaryMenu = () => (
+  <ul className={styles['secondary-menu']}>
+    <li>
+      <ExternalLink href="https://github.com/balazspeczeli/cleancode-hu">
+        <Icon name="github" />
+        GitHub
+      </ExternalLink>
+    </li>
+  </ul>
 );
 
-interface SidebarProps {
+type SidebarProps = {
   currentPath: string;
-}
+};
 
 export const Sidebar = ({ currentPath }: SidebarProps) => {
   return (
     <aside className={styles.component}>
       <div className={styles.title}>cleancode.hu</div>
-      <ul className={styles['primary-menu']}>
-        <li>
-          <InternalLink
-            text="Főoldal"
-            icon={<HomeIcon />}
-            href="/"
-            currentPath={currentPath}
-          />
-        </li>
-      </ul>
-      <ul className={styles['secondary-menu']}>
-        <li>
-          <ExternalLink
-            text="GitHub"
-            icon={<GitHubIcon />}
-            href="https://github.com/balazspeczeli/cleancode-hu"
-          />
-        </li>
-      </ul>
+      <PrimaryMenu currentPath={currentPath} />
+      <SecondaryMenu />
     </aside>
   );
 };
