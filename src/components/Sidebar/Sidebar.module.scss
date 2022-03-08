@@ -3,16 +3,19 @@
   height: 100vh;
   position: sticky;
   top: 0;
-  background-color: var(--color-background-sidebar);
+  background-color: var(--color-sidebar-background);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex-shrink: 0;
-  padding: var(--default-padding);
-  border-right: 1px solid var(--color-sidebar-border);
+  padding: var(--padding-default);
+
+  a {
+    color: var(--color-sidebar-text);
+  }
 
   .title {
-    color: #8d8d8d;
+    color: var(--color-sidebar-text);
     font-weight: 400;
     font-size: 2rem;
     text-align: center;
