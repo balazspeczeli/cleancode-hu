@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
+import { Container, Main, Sidebar } from 'components';
+import meta from 'content/meta.json';
 import 'styles/global.scss';
 import 'styles/prism-vs.scss';
-
-import { Container, Main, Sidebar } from 'components';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { asPath } = useRouter();
@@ -15,14 +15,8 @@ const App = ({ Component, pageProps }: AppProps) => {
         <title>cleancode.hu</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Útmutató az olvasható és karbantartható kód írásához"
-        />
-        <meta
-          name="keywords"
-          content="tiszta kód, szoftverfejlesztés, programozás"
-        />
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
       </Head>
       <Container>
         <Sidebar currentPath={asPath} />
