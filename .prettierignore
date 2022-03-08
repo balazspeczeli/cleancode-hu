@@ -7,3 +7,6 @@
 
 # production
 /build
+
+# content files
+*.mdx
