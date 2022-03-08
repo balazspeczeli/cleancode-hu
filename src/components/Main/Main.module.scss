@@ -1,11 +1,21 @@
 .component {
   width: 100%;
+  line-height: 1.5;
   background-color: var(--color-background-main);
   padding: var(--default-padding);
 
   h1 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 2rem;
-    margin: 0;
+    margin: 0 0 1rem 0;
+    line-height: initial;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+
+  h3 {
+    font-weight: 400;
   }
 }
