@@ -22,7 +22,7 @@ const PrimaryMenu = ({ currentPath }: PrimaryMenuProps) => (
           [styles.active]: '/' === currentPath,
         })}
       >
-        <Icon name="home" />
+        <Icon name="home" className={styles.icon} />
         Főoldal
       </InternalLink>
     </li>
@@ -34,7 +34,7 @@ const PrimaryMenu = ({ currentPath }: PrimaryMenuProps) => (
             [styles.active]: '/' + id === currentPath,
           })}
         >
-          <Icon name={id} />
+          <Icon name={id} className={styles.icon} />
           {text}
         </InternalLink>
       </li>
@@ -46,7 +46,7 @@ const SecondaryMenu = () => (
   <ul className={styles['secondary-menu']}>
     <li>
       <ExternalLink href="https://github.com/balazspeczeli/cleancode-hu">
-        <Icon name="github" />
+        <Icon name="github" className={styles.icon} />
         GitHub
       </ExternalLink>
     </li>
