@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app';
 import { Container, Main, Sidebar } from 'components/layout';
 import meta from 'content/meta.json';
 import 'styles/global.scss';
-import 'styles/prism-vs.scss';
+import 'styles/one-light.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { asPath } = useRouter();
