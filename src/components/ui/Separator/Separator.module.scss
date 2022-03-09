@@ -1,0 +1,16 @@
+.component {
+  position: relative;
+  background-color: var(--color-separator-line);
+  height: 2px;
+  border-radius: 2px;
+
+  svg {
+    fill: var(--color-separator-icon);
+    background-color: var(--color-main-background);
+    position: absolute;
+    top: -9px;
+    left: calc(50% - 15px);
+    height: 20px;
+    width: 30px;
+  }
+}

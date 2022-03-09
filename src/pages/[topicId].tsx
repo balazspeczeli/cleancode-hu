@@ -6,11 +6,17 @@ import {
   getTopicsAvailable,
   getTopicTitle,
 } from 'utils/topics';
-import { CodeSnippet, Notification, PageHeader } from 'components/ui';
+import {
+  CodeSnippet,
+  Notification,
+  PageHeader,
+  Separator,
+} from 'components/ui';
 
 const components = {
   CodeSnippet,
   Notification,
+  Separator,
 };
 
 type TopicPageProps = {
