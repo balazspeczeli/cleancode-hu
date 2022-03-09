@@ -6,7 +6,7 @@ import {
   getTopicsAvailable,
   getTopicTitle,
 } from 'utils/topics';
-import { CodeSnippet, Notification } from 'components/ui';
+import { CodeSnippet, Notification, PageHeader } from 'components/ui';
 
 const components = {
   CodeSnippet,
@@ -14,14 +14,15 @@ const components = {
 };
 
 type TopicPageProps = {
+  topicId: string;
   title: string;
   content: string;
 };
 
-const TopicPage = ({ title, content }: TopicPageProps) => {
+const TopicPage = ({ topicId, title, content }: TopicPageProps) => {
   return (
     <>
-      <h1>{title}</h1>
+      <PageHeader title={title} icon={topicId} />
       <MDXRemote compiledSource={content} components={components} />
     </>
   );
@@ -50,6 +51,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
+      topicId,
       title,
       content,
     },

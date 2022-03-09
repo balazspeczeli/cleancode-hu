@@ -3,4 +3,5 @@ export { ExternalLink } from './ExternalLink';
 export { Icon } from './Icon';
 export { InternalLink } from './InternalLink';
 export { Notification } from './Notification';
+export { PageHeader } from './PageHeader';
 export { UnderDevelopment } from './UnderDevelopment';

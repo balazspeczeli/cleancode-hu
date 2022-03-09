@@ -15,6 +15,7 @@ const iconTypes = {
 
 interface IconProps extends SVGAttributes<SVGElement> {
   name: string;
+  className?: string;
 }
 
 export const Icon = ({ name, ...props }: IconProps) => {
