@@ -4,6 +4,7 @@ const nextConfig = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
+      issuer: /\.tsx$/,
       use: ['@svgr/webpack'],
     });
 
