@@ -1,5 +1,5 @@
 import styles from './Separator.module.scss';
-import Icon from 'assets/icons/code.svg';
+import Icon from 'assets/code.svg';
 
 export const Separator = () => {
   return (

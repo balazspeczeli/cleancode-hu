@@ -1,16 +1,19 @@
 import { SVGAttributes } from 'react';
-import CSS from 'assets/icons/css.svg';
+
 import GitHub from 'assets/icons/github.svg';
 import Home from 'assets/icons/home.svg';
-import HTML from 'assets/icons/html.svg';
-import JavaScript from 'assets/icons/javascript.svg';
-import React from 'assets/icons/react.svg';
-import TypeScript from 'assets/icons/typescript.svg';
+
+import CSS from 'assets/icons/topics/css.svg';
+import HTML from 'assets/icons/topics/html.svg';
+import JavaScript from 'assets/icons/topics/javascript.svg';
+import React from 'assets/icons/topics/react.svg';
+import TypeScript from 'assets/icons/topics/typescript.svg';
 
 const iconTypes = {
-  css: CSS,
   github: GitHub,
   home: Home,
+
+  css: CSS,
   html: HTML,
   javascript: JavaScript,
   react: React,
