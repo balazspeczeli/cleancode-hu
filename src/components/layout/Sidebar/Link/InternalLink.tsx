@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { useAppContext } from 'context/state';
+import { useAppContext } from 'hooks/useAppContext';
 import styles from './Link.module.scss';
 
 type InternalLinkProps = {

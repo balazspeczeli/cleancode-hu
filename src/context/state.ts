@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 
 type State = {
   isSidebarOpen: boolean;
@@ -19,5 +19,3 @@ const defaultContext: AppContext = {
 };
 
 export const AppContext = createContext<AppContext>(defaultContext);
-
-export const useAppContext = () => useContext(AppContext);

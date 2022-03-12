@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import { useAppContext } from 'context/state';
+import { useAppContext } from 'hooks/useAppContext';
 import { Backdrop } from './Backdrop';
 import { PrimaryMenu, SecondaryMenu } from './Menu';
 import styles from './Sidebar.module.scss';

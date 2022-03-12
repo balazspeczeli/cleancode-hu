@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useAppContext } from 'context/state';
+import { useAppContext } from 'hooks/useAppContext';
 import { MenuIcon } from './MenuIcon';
 import styles from './Topbar.module.scss';
 
