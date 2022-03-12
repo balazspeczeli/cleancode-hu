@@ -1,0 +1,15 @@
+.component {
+  font-weight: 500;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin: 15px 0;
+
+    &:first-child,
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

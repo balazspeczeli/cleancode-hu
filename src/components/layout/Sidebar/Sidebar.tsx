@@ -1,82 +1,12 @@
+import { useCallback } from 'react';
 import classNames from 'classnames';
-import { ExternalLink, Icon, InternalLink } from 'components/ui';
-import topics from 'content/topics.json';
-import pages from 'content/pages.json';
+import { PrimaryMenu, SecondaryMenu } from './Menu';
+import { Backdrop } from './Backdrop';
 import styles from './Sidebar.module.scss';
 import { useAppContext } from 'context/state';
-import { useCallback } from 'react';
+import { Title } from './Title';
 
-const sidebarTopics = topics.map((topic) => ({
-  id: topic,
-  text: pages[topic as keyof typeof pages],
-}));
-
-type PrimaryMenuProps = {
-  currentPath: string;
-};
-
-const PrimaryMenu = ({ currentPath }: PrimaryMenuProps) => (
-  <ul className={styles['primary-menu']}>
-    <li>
-      <InternalLink
-        href="/"
-        className={classNames({
-          [styles.active]: '/' === currentPath,
-        })}
-      >
-        <Icon name="home" className={styles.icon} />
-        Főoldal
-      </InternalLink>
-    </li>
-    {sidebarTopics.map(({ id, text }) => (
-      <li key={id}>
-        <InternalLink
-          href={'/' + id}
-          className={classNames({
-            [styles.active]: '/' + id === currentPath,
-          })}
-        >
-          <Icon name={id} className={styles.icon} />
-          {text}
-        </InternalLink>
-      </li>
-    ))}
-  </ul>
-);
-
-const SecondaryMenu = () => (
-  <ul className={styles['secondary-menu']}>
-    <li>
-      <ExternalLink href="https://github.com/balazspeczeli/cleancode-hu">
-        <Icon name="github" className={styles.icon} />
-        GitHub
-      </ExternalLink>
-    </li>
-  </ul>
-);
-
-type BackdropProps = {
-  isSidebarOpen: boolean;
-  closeSidebar: () => void;
-};
-
-export const Backdrop = ({ isSidebarOpen, closeSidebar }: BackdropProps) => {
-  return (
-    <div
-      className={classNames({
-        [styles.backdrop]: true,
-        [styles.isShown]: isSidebarOpen,
-      })}
-      onClick={closeSidebar}
-    />
-  );
-};
-
-type SidebarProps = {
-  currentPath: string;
-};
-
-export const Sidebar = ({ currentPath }: SidebarProps) => {
+export const Sidebar = () => {
   const { context, setContext } = useAppContext();
 
   const closeSidebar = useCallback(() => {
@@ -85,18 +15,17 @@ export const Sidebar = ({ currentPath }: SidebarProps) => {
 
   return (
     <aside
-      className={classNames({
-        [styles.component]: true,
-        [styles.isOpen]: context.isSidebarOpen,
+      className={classNames(styles.component, {
+        [styles.open]: context.isSidebarOpen,
       })}
     >
-      <div className={styles.title}>cleancode.hu</div>
-      <PrimaryMenu currentPath={currentPath} />
-      <SecondaryMenu />
       <Backdrop
         isSidebarOpen={context.isSidebarOpen}
         closeSidebar={closeSidebar}
       />
+      <Title />
+      <PrimaryMenu />
+      <SecondaryMenu />
     </aside>
   );
 };

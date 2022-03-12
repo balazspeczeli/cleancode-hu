@@ -1,0 +1,11 @@
+.component {
+  color: var(--color-sidebar-text);
+  font-size: 2rem;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 25px;
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}

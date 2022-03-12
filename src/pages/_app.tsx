@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { Container, Main, Sidebar, Topbar } from 'components/layout';
 import meta from 'content/meta.json';
@@ -10,7 +9,6 @@ import { AppContext, defaultState } from 'context/state';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [context, setContext] = useState(defaultState);
-  const { asPath } = useRouter();
 
   return (
     <AppContext.Provider value={{ context, setContext }}>
@@ -23,7 +21,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <Topbar />
       <Container>
-        <Sidebar currentPath={asPath} />
+        <Sidebar />
         <Main>
           <Component {...pageProps} />
         </Main>

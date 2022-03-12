@@ -12,8 +12,12 @@
   z-index: 10;
   transition: left 0.25s;
 
-  &.isOpen {
+  &.open {
     left: 0;
+  }
+
+  > :last-child {
+    margin-top: auto;
   }
 
   @media screen and (max-width: 992px) {
@@ -22,76 +26,5 @@
     left: -210px;
     top: 50px;
     height: calc(100vh - 50px);
-  }
-
-  .title {
-    color: var(--color-sidebar-text);
-    font-size: 2rem;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 25px;
-
-    @media screen and (max-width: 992px) {
-      display: none;
-    }
-  }
-
-  .primary-menu,
-  .secondary-menu {
-    font-weight: 500;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li:not(:last-child) {
-      margin: 15px 0;
-    }
-
-    a {
-      color: var(--color-sidebar-text);
-      display: flex;
-      align-items: center;
-      filter: grayscale(1);
-      opacity: 0.5;
-      transition: filter, opacity, 0.3s;
-
-      &:hover,
-      &.active {
-        filter: none;
-        opacity: 1;
-      }
-    }
-
-    .icon {
-      width: 20px;
-      height: 20px;
-      margin-right: 8px;
-    }
-  }
-
-  .secondary-menu {
-    margin-top: auto;
-  }
-
-  .backdrop {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    background-color: #000000;
-    opacity: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    transition: opacity 0.25s;
-    pointer-events: none;
-
-    @media screen and (min-width: 993px) {
-      display: none;
-    }
-
-    &.isShown {
-      pointer-events: all;
-      opacity: 0.65;
-    }
   }
 }
