@@ -3,6 +3,8 @@ import { ExternalLink, Icon, InternalLink } from 'components/ui';
 import topics from 'content/topics.json';
 import pages from 'content/pages.json';
 import styles from './Sidebar.module.scss';
+import { useAppContext } from 'context/state';
+import { useCallback } from 'react';
 
 const sidebarTopics = topics.map((topic) => ({
   id: topic,
@@ -53,16 +55,48 @@ const SecondaryMenu = () => (
   </ul>
 );
 
+type BackdropProps = {
+  isSidebarOpen: boolean;
+  closeSidebar: () => void;
+};
+
+export const Backdrop = ({ isSidebarOpen, closeSidebar }: BackdropProps) => {
+  return (
+    <div
+      className={classNames({
+        [styles.backdrop]: true,
+        [styles.isShown]: isSidebarOpen,
+      })}
+      onClick={closeSidebar}
+    />
+  );
+};
+
 type SidebarProps = {
   currentPath: string;
 };
 
 export const Sidebar = ({ currentPath }: SidebarProps) => {
+  const { context, setContext } = useAppContext();
+
+  const closeSidebar = useCallback(() => {
+    setContext({ ...context, isSidebarOpen: false });
+  }, [context, setContext]);
+
   return (
-    <aside className={styles.component}>
+    <aside
+      className={classNames({
+        [styles.component]: true,
+        [styles.isOpen]: context.isSidebarOpen,
+      })}
+    >
       <div className={styles.title}>cleancode.hu</div>
       <PrimaryMenu currentPath={currentPath} />
       <SecondaryMenu />
+      <Backdrop
+        isSidebarOpen={context.isSidebarOpen}
+        closeSidebar={closeSidebar}
+      />
     </aside>
   );
 };

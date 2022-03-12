@@ -1,4 +1,6 @@
+import { useAppContext } from 'context/state';
 import Link from 'next/link';
+import { useCallback } from 'react';
 
 type InternalLinkProps = {
   href: string;
@@ -10,8 +12,18 @@ export const InternalLink = ({
   href,
   children,
   ...props
-}: InternalLinkProps) => (
-  <Link href={href}>
-    <a {...props}>{children}</a>
-  </Link>
-);
+}: InternalLinkProps) => {
+  const { context, setContext } = useAppContext();
+
+  const closeSidebar = useCallback(() => {
+    setContext({ ...context, isSidebarOpen: false });
+  }, [context, setContext]);
+
+  return (
+    <Link href={href}>
+      <a onClick={closeSidebar} {...props}>
+        {children}
+      </a>
+    </Link>
+  );
+};

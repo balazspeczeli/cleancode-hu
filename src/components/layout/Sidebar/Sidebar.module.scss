@@ -9,12 +9,31 @@
   justify-content: flex-start;
   flex-shrink: 0;
   padding: var(--padding-default);
+  z-index: 10;
+  transition: left 0.25s;
+
+  &.isOpen {
+    left: 0;
+  }
+
+  @media screen and (max-width: 992px) {
+    position: fixed;
+    width: 210px;
+    left: -210px;
+    top: 50px;
+    height: calc(100vh - 50px);
+  }
 
   .title {
     color: var(--color-sidebar-text);
     font-size: 2rem;
     text-align: center;
     margin: 0;
+    margin-bottom: 25px;
+
+    @media screen and (max-width: 992px) {
+      display: none;
+    }
   }
 
   .primary-menu,
@@ -50,11 +69,29 @@
     }
   }
 
-  .primary-menu {
-    margin-top: 25px;
-  }
-
   .secondary-menu {
     margin-top: auto;
+  }
+
+  .backdrop {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background-color: #000000;
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    transition: opacity 0.25s;
+    pointer-events: none;
+
+    @media screen and (min-width: 993px) {
+      display: none;
+    }
+
+    &.isShown {
+      pointer-events: all;
+      opacity: 0.65;
+    }
   }
 }
