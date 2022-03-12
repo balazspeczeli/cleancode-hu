@@ -16,6 +16,7 @@
     "gray-matter",
     "assets/(.*)",
     "context",
+    "hooks",
     "components/(.*)",
     "content/(.*)",
     "./(.*)",
