@@ -1,11 +1,11 @@
-import Head from 'next/head';
+import { useState } from 'react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { AppContext, defaultState } from 'context/state';
 import { Container, Main, Sidebar, Topbar } from 'components/layout';
 import meta from 'content/meta.json';
 import 'styles/global.scss';
 import 'styles/one-light.scss';
-import { useState } from 'react';
-import { AppContext, defaultState } from 'context/state';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [context, setContext] = useState(defaultState);

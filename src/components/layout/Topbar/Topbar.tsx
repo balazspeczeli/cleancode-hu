@@ -1,7 +1,7 @@
-import { useAppContext } from 'context/state';
 import Link from 'next/link';
-import styles from './Topbar.module.scss';
+import { useAppContext } from 'context/state';
 import { MenuIcon } from './MenuIcon';
+import styles from './Topbar.module.scss';
 
 export const Topbar = () => {
   const { context, setContext } = useAppContext();

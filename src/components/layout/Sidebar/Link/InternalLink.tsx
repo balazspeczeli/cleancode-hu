@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import Link from 'next/link';
-import styles from './Link.module.scss';
-import { useAppContext } from 'context/state';
-import classNames from 'classnames';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
+import { useAppContext } from 'context/state';
+import styles from './Link.module.scss';
 
 type InternalLinkProps = {
   href: string;

@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import { PrimaryMenu, SecondaryMenu } from './Menu';
-import { Backdrop } from './Backdrop';
-import styles from './Sidebar.module.scss';
 import { useAppContext } from 'context/state';
+import { Backdrop } from './Backdrop';
+import { PrimaryMenu, SecondaryMenu } from './Menu';
+import styles from './Sidebar.module.scss';
 import { Title } from './Title';
 
 export const Sidebar = () => {

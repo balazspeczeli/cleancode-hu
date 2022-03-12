@@ -3,5 +3,23 @@
   "trailingComma": "es5",
   "singleQuote": true,
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "importOrder": [
+    "/react/i",
+    "fs",
+    "path",
+    "next",
+    "next/head",
+    "next/router",
+    "next/link",
+    "classnames",
+    "gray-matter",
+    "assets/(.*)",
+    "context",
+    "components/(.*)",
+    "content/(.*)",
+    "./(.*)",
+    "styles/(.*)"
+  ],
+  "importOrderSortSpecifiers": true
 }

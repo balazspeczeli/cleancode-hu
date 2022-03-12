@@ -2,16 +2,16 @@ import type { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { ParsedUrlQuery } from 'querystring';
 import {
-  getTopicContent,
-  getTopicsAvailable,
-  getTopicTitle,
-} from 'utils/topics';
-import {
   CodeSnippet,
   Notification,
   PageHeader,
   Separator,
 } from 'components/ui';
+import {
+  getTopicContent,
+  getTopicTitle,
+  getTopicsAvailable,
+} from 'utils/topics';
 
 const components = {
   CodeSnippet,

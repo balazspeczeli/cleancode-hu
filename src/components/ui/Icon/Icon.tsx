@@ -1,8 +1,6 @@
 import { SVGAttributes } from 'react';
-
 import GitHub from 'assets/icons/github.svg';
 import Home from 'assets/icons/home.svg';
-
 import CSS from 'assets/icons/topics/css.svg';
 import HTML from 'assets/icons/topics/html.svg';
 import JavaScript from 'assets/icons/topics/javascript.svg';

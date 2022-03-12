@@ -1,12 +1,12 @@
-import { InternalLink } from '../Link';
 import { Icon } from 'components/ui';
-import styles from './Menu.module.scss';
+import pagesJSON from 'content/pages.json';
 import topicsJSON from 'content/topics.json';
-import pages from 'content/pages.json';
+import { InternalLink } from '../Link';
+import styles from './Menu.module.scss';
 
 const topics = topicsJSON.map((topic) => ({
   id: topic,
-  text: pages[topic as keyof typeof pages],
+  text: pagesJSON[topic as keyof typeof pagesJSON],
 }));
 
 export const PrimaryMenu = () => (
