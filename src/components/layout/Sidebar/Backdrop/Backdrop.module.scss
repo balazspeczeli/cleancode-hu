@@ -1,6 +1,6 @@
 .component {
   position: fixed;
-  top: 50px;
+  top: var(--height-topbar);
   left: 0;
   background-color: #000000;
   width: 100%;

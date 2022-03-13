@@ -33,7 +33,7 @@
     }
 
     @media screen and (max-width: 992px) {
-      scroll-margin-top: 65px;
+      scroll-margin-top: calc(15px + var(--height-topbar));
     }
   }
 }

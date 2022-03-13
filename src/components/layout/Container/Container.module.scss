@@ -7,7 +7,7 @@
 
   @media screen and (max-width: 992px) {
     width: 690px;
-    margin-top: 50px;
+    margin-top: var(--height-topbar);
   }
 
   @media screen and (max-width: 768px) {

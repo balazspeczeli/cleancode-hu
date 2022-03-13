@@ -24,8 +24,8 @@
     position: fixed;
     width: 210px;
     left: -210px;
-    top: 50px;
-    height: calc(100% - 50px);
+    top: var(--height-topbar);
+    height: calc(100% - var(--height-topbar));
     overflow-y: auto;
 
     > :last-child {
