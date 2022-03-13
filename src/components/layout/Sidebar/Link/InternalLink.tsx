@@ -1,9 +1,15 @@
-import { useCallback } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { useAppContext } from 'hooks/useAppContext';
+import { useStore } from 'hooks/useStore';
 import styles from './Link.module.scss';
+
+const isLinkActive = (href: string, currentPageId: Nullable<string>) => {
+  if (href === '/' && currentPageId === null) {
+    return true;
+  }
+
+  return href.includes(currentPageId as string);
+};
 
 type InternalLinkProps = {
   href: string;
@@ -11,19 +17,15 @@ type InternalLinkProps = {
 };
 
 export const InternalLink = ({ href, children }: InternalLinkProps) => {
-  const { asPath } = useRouter();
-  const { context, setContext } = useAppContext();
-
-  const closeSidebar = useCallback(() => {
-    setContext({ ...context, isSidebarOpen: false });
-  }, [context, setContext]);
+  const currentPageId = useStore((state) => state.currentPageId);
+  const closeSidebar = useStore((state) => state.closeSidebar);
 
   return (
     <Link href={href}>
       <a
         onClick={closeSidebar}
         className={classNames(styles.component, {
-          [styles.active]: href === asPath,
+          [styles.active]: isLinkActive(href, currentPageId),
         })}
       >
         {children}

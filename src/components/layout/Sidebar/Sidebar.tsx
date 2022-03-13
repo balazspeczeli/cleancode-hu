@@ -1,28 +1,21 @@
-import { useCallback } from 'react';
 import classNames from 'classnames';
-import { useAppContext } from 'hooks/useAppContext';
+import { useStore } from 'hooks/useStore';
 import { Backdrop } from './Backdrop';
 import { PrimaryMenu, SecondaryMenu } from './Menu';
 import styles from './Sidebar.module.scss';
 import { Title } from './Title';
 
 export const Sidebar = () => {
-  const { context, setContext } = useAppContext();
-
-  const closeSidebar = useCallback(() => {
-    setContext({ ...context, isSidebarOpen: false });
-  }, [context, setContext]);
+  const isSidebarOpen = useStore((state) => state.isSidebarOpen);
+  const closeSidebar = useStore((state) => state.closeSidebar);
 
   return (
     <aside
       className={classNames(styles.component, {
-        [styles.open]: context.isSidebarOpen,
+        [styles.open]: isSidebarOpen,
       })}
     >
-      <Backdrop
-        isSidebarOpen={context.isSidebarOpen}
-        closeSidebar={closeSidebar}
-      />
+      <Backdrop isSidebarOpen={isSidebarOpen} closeSidebar={closeSidebar} />
       <Title />
       <PrimaryMenu />
       <SecondaryMenu />

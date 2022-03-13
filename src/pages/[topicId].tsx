@@ -1,17 +1,16 @@
+import { ParsedUrlQuery } from 'querystring';
+import { useEffect } from 'react';
+import { PageSection } from 'types';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
-import { ParsedUrlQuery } from 'querystring';
+import { useStore } from 'hooks/useStore';
 import {
   CodeSnippet,
   Notification,
   PageHeader,
   Separator,
 } from 'components/ui';
-import {
-  getTopicContent,
-  getTopicTitle,
-  getTopicsAvailable,
-} from 'utils/topics';
+import { getTopic, getTopicsAvailable } from 'utils/topic';
 
 const components = {
   CodeSnippet,
@@ -23,9 +22,21 @@ type TopicPageProps = {
   topicId: string;
   title: string;
   content: string;
+  sections: PageSection[];
 };
 
-const TopicPage = ({ topicId, title, content }: TopicPageProps) => {
+const TopicPage = ({ topicId, title, content, sections }: TopicPageProps) => {
+  const setCurrentPageId = useStore((state) => state.setCurrentPageId);
+  const setPageSections = useStore((state) => state.setPageSections);
+
+  useEffect(() => {
+    setCurrentPageId(topicId);
+  }, [setCurrentPageId, topicId]);
+
+  useEffect(() => {
+    setPageSections(sections);
+  }, [setPageSections, sections]);
+
   return (
     <>
       <PageHeader title={title} icon={topicId} />
@@ -52,14 +63,14 @@ interface IParams extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { topicId } = context.params as IParams;
-  const title = getTopicTitle(topicId);
-  const content = await getTopicContent(topicId);
+  const { content, title, sections } = await getTopic(topicId);
 
   return {
     props: {
       topicId,
       title,
       content,
+      sections,
     },
   };
 };

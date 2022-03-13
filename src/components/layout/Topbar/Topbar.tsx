@@ -1,22 +1,16 @@
 import Link from 'next/link';
-import { useAppContext } from 'hooks/useAppContext';
+import { useStore } from 'hooks/useStore';
 import { MenuIcon } from './MenuIcon';
 import styles from './Topbar.module.scss';
 
 export const Topbar = () => {
-  const { context, setContext } = useAppContext();
-
-  const toggleSidebar = () => {
-    setContext({
-      ...context,
-      isSidebarOpen: !context.isSidebarOpen,
-    });
-  };
+  const toggleSidebar = useStore((state) => state.toggleSidebar);
+  const closeSidebar = useStore((state) => state.closeSidebar);
 
   return (
     <div className={styles.component}>
       <MenuIcon onClick={toggleSidebar} />
-      <div className={styles.title}>
+      <div className={styles.title} onClick={closeSidebar}>
         <Link href="/">cleancode.hu</Link>
       </div>
     </div>

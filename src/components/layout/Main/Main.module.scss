@@ -16,4 +16,18 @@
   h4 {
     font-weight: 600;
   }
+
+  h2 {
+    a {
+      width: 16px;
+      height: 16px;
+      margin-left: 3px;
+      background-image: url('../../../assets/link.svg');
+      display: none;
+    }
+
+    &:hover a {
+      display: inline-block;
+    }
+  }
 }

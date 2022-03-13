@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useStore } from './useStore';
 import { buildPageTitle } from 'utils/page';
 
 export const usePageTitle = () => {
-  const { asPath } = useRouter();
-  const [pageTitle, setPageTitle] = useState(buildPageTitle(asPath));
+  const currentPageId = useStore((state) => state.currentPageId);
+  const [pageTitle, setPageTitle] = useState(buildPageTitle(currentPageId));
 
   useEffect(() => {
-    const newPageTitle = buildPageTitle(asPath);
+    const newPageTitle = buildPageTitle(currentPageId);
     setPageTitle(newPageTitle);
-  }, [asPath, setPageTitle]);
+  }, [setPageTitle, currentPageId]);
 
   return pageTitle;
 };
