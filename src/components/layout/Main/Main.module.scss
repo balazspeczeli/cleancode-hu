@@ -18,6 +18,8 @@
   }
 
   h2 {
+    scroll-margin-top: 15px;
+
     a {
       width: 16px;
       height: 16px;
@@ -28,6 +30,10 @@
 
     &:hover a {
       display: inline-block;
+    }
+
+    @media screen and (max-width: 992px) {
+      scroll-margin-top: 65px;
     }
   }
 }
