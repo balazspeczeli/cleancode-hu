@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { PageSection } from 'types';
 import { useStore } from 'hooks/useStore';
 import styles from './Sections.module.scss';
@@ -9,11 +10,23 @@ type SectionsProps = {
 export const Sections = ({ sections }: SectionsProps) => {
   const closeSidebar = useStore((state) => state.closeSidebar);
 
+  const handleClick = (e: MouseEvent<HTMLElement>, id: string) => {
+    closeSidebar();
+    e.preventDefault();
+    document.querySelector(`#${id}`)?.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <div>
       {sections.map(({ id, text }) => (
         <div key={id} className={styles.section}>
-          <a href={'#' + id} onClick={closeSidebar} className={styles.link}>
+          <a
+            href={'#' + id}
+            onClick={(e) => handleClick(e, id)}
+            className={styles.link}
+          >
             {text}
           </a>
         </div>
