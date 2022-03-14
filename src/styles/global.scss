@@ -41,6 +41,10 @@
     --color-separator-line: #e2e2e2;
     --color-separator-icon: #d2d2d2;
   }
+
+  @media screen and (max-width: 992px) {
+    --padding-default: 15px;
+  }
 }
 
 body {
