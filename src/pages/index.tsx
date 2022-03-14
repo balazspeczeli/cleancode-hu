@@ -7,7 +7,7 @@ const IndexPage: NextPage = () => {
   const setCurrentPageId = useStore((state) => state.setCurrentPageId);
 
   useEffect(() => {
-    setCurrentPageId(null);
+    setCurrentPageId('index');
   }, [setCurrentPageId]);
 
   return <UnderDevelopment />;

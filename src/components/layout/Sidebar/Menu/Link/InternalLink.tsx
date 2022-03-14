@@ -4,7 +4,7 @@ import { useStore } from 'hooks/useStore';
 import styles from './Link.module.scss';
 
 const isLinkActive = (href: string, currentPageId: Nullable<string>) => {
-  if (href === '/' && currentPageId === null) {
+  if (href === '/' && currentPageId === 'index') {
     return true;
   }
 

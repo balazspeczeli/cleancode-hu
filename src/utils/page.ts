@@ -3,7 +3,7 @@ import pagesJSON from 'content/pages.json';
 type PageId = keyof typeof pagesJSON;
 
 export const buildPageTitle = (pageId: Nullable<string>) => {
-  if (pageId === null || pagesJSON[pageId as PageId] === undefined) {
+  if (pageId === 'index' || pagesJSON[pageId as PageId] === undefined) {
     return 'cleancode.hu';
   }
 
