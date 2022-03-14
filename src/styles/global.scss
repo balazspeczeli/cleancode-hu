@@ -2,6 +2,7 @@
   --font-family-code: 'Roboto Mono', monospace;
   --padding-default: 25px;
   --height-topbar: 50px;
+  --scrollbar-compensation: 0px;
 
   [data-theme='light'] {
     --color-body-background: #ffffff;
@@ -42,6 +43,7 @@
 
 body {
   padding: 0;
+  padding-right: var(--scrollbar-compensation);
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: var(--color-body-background);
