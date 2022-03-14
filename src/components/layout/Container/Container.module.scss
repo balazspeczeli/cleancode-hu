@@ -8,6 +8,7 @@
   @media screen and (max-width: 992px) {
     width: 690px;
     margin-top: var(--height-topbar);
+    min-height: calc(100vh - var(--height-topbar));
   }
 
   @media screen and (max-width: 768px) {
