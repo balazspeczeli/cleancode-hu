@@ -1,4 +1,16 @@
 import { Head, Html, Main, NextScript } from 'next/document';
+import { defaultTheme } from 'hooks/useTheme';
+import { getUserSetPreference, setThemeOnUI } from 'utils/theme';
+
+const themeInitializerScript = `
+  (function () {
+    ${getUserSetPreference.toString()};
+    ${setThemeOnUI.toString()};
+
+    const userSetPreference = getUserSetPreference();
+    setThemeOnUI(userSetPreference || ${defaultTheme});
+  })();
+`;
 
 const Document = () => {
   return (
@@ -16,6 +28,7 @@ const Document = () => {
         />
       </Head>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializerScript }} />
         <Main />
         <NextScript />
       </body>

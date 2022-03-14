@@ -1,0 +1,22 @@
+.component {
+  color: var(--color-sidebar-text);
+  display: flex;
+  align-items: center;
+  filter: grayscale(1);
+  cursor: pointer;
+  opacity: 0.5;
+  transition: filter, opacity, 0.3s;
+
+  &:hover,
+  &.active {
+    filter: none;
+    opacity: 1;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    fill: var(--color-sidebar-text);
+  }
+}

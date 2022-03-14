@@ -4,6 +4,7 @@ import { usePageTitle } from 'hooks/usePageTitle';
 import { Container, Main, Sidebar, Topbar } from 'components/layout';
 import meta from 'content/meta.json';
 import 'styles/global.scss';
+import 'styles/one-dark.scss';
 import 'styles/one-light.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {

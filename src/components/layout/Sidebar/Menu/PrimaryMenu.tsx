@@ -2,7 +2,7 @@ import { useStore } from 'hooks/useStore';
 import { Icon } from 'components/ui';
 import pagesJSON from 'content/pages.json';
 import topicsJSON from 'content/topics.json';
-import { InternalLink } from '../Link';
+import { InternalLink } from './Link';
 import styles from './Menu.module.scss';
 import { Sections } from './Sections';
 
