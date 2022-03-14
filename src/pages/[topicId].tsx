@@ -4,17 +4,12 @@ import { PageSection } from 'types';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { useStore } from 'hooks/useStore';
-import {
-  CodeSnippet,
-  Notification,
-  PageHeader,
-  Separator,
-} from 'components/ui';
+import { CodeSnippet, Note, PageHeader, Separator } from 'components/ui';
 import { getTopic, getTopicsAvailable } from 'utils/topic';
 
 const components = {
   CodeSnippet,
-  Notification,
+  Note,
   Separator,
 };
 
