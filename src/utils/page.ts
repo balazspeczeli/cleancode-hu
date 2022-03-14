@@ -1,13 +1,14 @@
+import meta from 'content/meta.json';
 import pagesJSON from 'content/pages.json';
 
 type PageId = keyof typeof pagesJSON;
 
 export const buildPageTitle = (pageId: Nullable<string>) => {
   if (pageId === 'index' || pagesJSON[pageId as PageId] === undefined) {
-    return 'cleancode.hu';
+    return meta.title;
   }
 
-  return `cleancode.hu - ${pagesJSON[pageId as PageId]}`;
+  return `${meta.title} - ${pagesJSON[pageId as PageId]}`;
 };
 
 export const setLocationHash = (hash: string) => {
