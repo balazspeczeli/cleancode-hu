@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Theme } from 'types';
 import {
-  getUserSetPreference,
+  getPreference,
   saveUserSetPreference,
   setThemeOnUI,
 } from 'utils/theme';
 
-export const defaultTheme = Theme.Light;
-
 export const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>(
-    getUserSetPreference() || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(getPreference());
 
   useEffect(() => {
     saveUserSetPreference(theme);

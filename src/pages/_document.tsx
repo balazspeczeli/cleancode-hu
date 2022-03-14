@@ -1,14 +1,20 @@
 import { Head, Html, Main, NextScript } from 'next/document';
-import { defaultTheme } from 'hooks/useTheme';
-import { getUserSetPreference, setThemeOnUI } from 'utils/theme';
+import {
+  getPreference,
+  getSystemPreference,
+  getUserSetPreference,
+  setThemeOnUI,
+} from 'utils/theme';
 
 const themeInitializerScript = `
   (function () {
     ${getUserSetPreference.toString()};
+    ${getSystemPreference.toString()};
+    ${getPreference.toString()};
     ${setThemeOnUI.toString()};
 
-    const userSetPreference = getUserSetPreference();
-    setThemeOnUI(userSetPreference || ${defaultTheme});
+    const preference = getPreference();
+    setThemeOnUI(preference);
   })();
 `;
 
