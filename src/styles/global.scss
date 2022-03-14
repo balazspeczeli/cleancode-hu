@@ -7,6 +7,7 @@
   [data-theme='light'] {
     --color-body-background: #ffffff;
     --color-text: #000000;
+    --color-link: #2b5be0;
     --color-main-background: #ffffff;
     --color-topbar-text: #ffffff;
     --color-topbar-background: #191919;
@@ -25,6 +26,7 @@
   [data-theme='dark'] {
     --color-body-background: #101010;
     --color-text: #ffffff;
+    --color-link: #7e9ef7;
     --color-main-background: #101010;
     --color-topbar-text: #ffffff;
     --color-topbar-background: #333333;
@@ -58,6 +60,7 @@ body {
 }
 
 a {
+  color: var(--color-link);
   text-decoration: none;
 }
 

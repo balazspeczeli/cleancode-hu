@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { PageHeader } from 'components/ui';
 
-const Custom404 = () => {
+const Custom404Page = () => {
   return (
     <>
-      <h1>404 - Page Not Found</h1>
+      <PageHeader title="404 - Page Not Found" icon="sad-browser" />
       <Link href="/">
         <a>Vissza a főoldalra</a>
       </Link>
@@ -11,4 +12,4 @@ const Custom404 = () => {
   );
 };
 
-export default Custom404;
+export default Custom404Page;
