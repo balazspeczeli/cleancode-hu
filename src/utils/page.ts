@@ -9,3 +9,7 @@ export const buildPageTitle = (pageId: Nullable<string>) => {
 
   return `cleancode.hu - ${pagesJSON[pageId as PageId]}`;
 };
+
+export const setLocationHash = (hash: string) => {
+  history.replaceState(null, '', '#' + hash);
+};

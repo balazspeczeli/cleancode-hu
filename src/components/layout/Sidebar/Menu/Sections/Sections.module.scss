@@ -37,6 +37,7 @@
     opacity: 0.5;
     transition: opacity 0.25s;
 
+    &.active,
     &:hover {
       opacity: 1;
     }

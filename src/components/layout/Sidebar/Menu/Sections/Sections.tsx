@@ -1,20 +1,26 @@
+import { useEffect, useState } from 'react';
 import { PageSection } from 'types';
+import classNames from 'classnames';
+import { usePageSectionObserver } from 'hooks/usePageSectionObserver';
 import { useStore } from 'hooks/useStore';
 import styles from './Sections.module.scss';
+import { setLocationHash } from 'utils/page';
 
 type SectionsProps = {
   sections: PageSection[];
 };
 
 export const Sections = ({ sections }: SectionsProps) => {
+  const [activeSectionId, setActiveSectionId] = useState<string>();
   const closeSidebar = useStore((state) => state.closeSidebar);
 
-  const handleClick = (id: string) => {
-    closeSidebar();
-    document.querySelector(`#${id}`)?.scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
+  usePageSectionObserver(setActiveSectionId);
+
+  useEffect(() => {
+    if (activeSectionId) {
+      setLocationHash(activeSectionId);
+    }
+  }, [activeSectionId]);
 
   return (
     <div>
@@ -22,8 +28,10 @@ export const Sections = ({ sections }: SectionsProps) => {
         <div key={id} className={styles.section}>
           <a
             href={'#' + id}
-            onClick={() => handleClick(id)}
-            className={styles.link}
+            onClick={closeSidebar}
+            className={classNames(styles.link, {
+              [styles.active]: id === activeSectionId,
+            })}
           >
             {text}
           </a>
