@@ -52,12 +52,12 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-interface IParams extends ParsedUrlQuery {
+interface TopicPageParams extends ParsedUrlQuery {
   topicId: string;
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { topicId } = context.params as IParams;
+  const { topicId } = context.params as TopicPageParams;
   const { content, title, sections } = await getTopic(topicId);
 
   return {
