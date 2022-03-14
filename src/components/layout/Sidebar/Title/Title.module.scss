@@ -5,6 +5,10 @@
   margin: 0;
   margin-bottom: 25px;
 
+  a {
+    color: var(--color-sidebar-text);
+  }
+
   @media screen and (max-width: 992px) {
     display: none;
   }
