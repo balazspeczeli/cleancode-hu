@@ -1,0 +1,41 @@
+.component {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.words {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  margin-bottom: 5px !important;
+}
+
+.illustration {
+  width: 200px;
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    font-size: 1.75rem !important;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .component {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .words {
+    order: 2;
+  }
+
+  .illustration {
+    order: 1;
+    margin: 0 auto 25px auto;
+  }
+}
