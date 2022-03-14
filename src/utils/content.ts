@@ -6,7 +6,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { rehypeSlug } from '../vendor/rehype-slug';
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import pagesJSON from 'content/pages.json';
+import { getPageTitle } from './page';
 
 const contentDirectory = path.join(process.cwd(), 'src', 'content');
 const topicsDirectory = path.join(contentDirectory, 'topics');
@@ -15,10 +15,6 @@ export const getTopicsAvailable = () => {
   return fs
     .readdirSync(topicsDirectory)
     .map((filename) => path.parse(filename).name);
-};
-
-const getPageTitle = (pageId: string) => {
-  return pagesJSON[pageId as keyof typeof pagesJSON];
 };
 
 const extractpageSections = (pageContents: string) => {

@@ -1,15 +1,11 @@
 import { useStore } from 'hooks/useStore';
 import { Icon } from 'components/ui';
-import pagesJSON from 'content/pages.json';
-import topicsJSON from 'content/topics.json';
 import { InternalLink } from './Link';
 import styles from './Menu.module.scss';
 import { Sections } from './Sections';
+import { buildTopicsList } from 'utils/page';
 
-const topics = topicsJSON.map((topic) => ({
-  id: topic,
-  text: pagesJSON[topic as keyof typeof pagesJSON],
-}));
+const topics = buildTopicsList();
 
 export const PrimaryMenu = () => {
   const currentPageId = useStore((state) => state.currentPageId);

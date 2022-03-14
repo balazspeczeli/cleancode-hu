@@ -3,13 +3,13 @@ import create from 'zustand';
 import { combine } from 'zustand/middleware';
 
 type InitialState = {
-  currentPageId: Nullable<string>;
+  currentPageId: string | undefined;
   pageSections: PageSection[];
   isSidebarOpen: boolean;
 };
 
 type SetState = {
-  setCurrentPageId: (pageId: Nullable<string>) => void;
+  setCurrentPageId: (pageId: string) => void;
   setPageSections: (pageSections: PageSection[]) => void;
   toggleSidebar: () => void;
   closeSidebar: () => void;
@@ -18,7 +18,7 @@ type SetState = {
 export const useStore = create(
   combine<InitialState, SetState>(
     {
-      currentPageId: null,
+      currentPageId: undefined,
       pageSections: [],
       isSidebarOpen: false,
     },
