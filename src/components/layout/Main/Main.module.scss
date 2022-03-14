@@ -1,4 +1,6 @@
 .component {
+  --scroll-margin-top: 10px;
+
   width: 100%;
   line-height: 1.5;
   background-color: var(--color-main-background);
@@ -18,7 +20,7 @@
   }
 
   h2 {
-    scroll-margin-top: 15px;
+    scroll-margin-top: var(--scroll-margin-top);
 
     a {
       width: 16px;
@@ -33,7 +35,7 @@
     }
 
     @media screen and (max-width: 992px) {
-      scroll-margin-top: calc(10px + var(--height-topbar));
+      scroll-margin-top: calc(var(--scroll-margin-top) + var(--height-topbar));
     }
   }
 }
