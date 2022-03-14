@@ -1,6 +1,7 @@
 import { SVGAttributes } from 'react';
 import GitHub from 'assets/icons/github.svg';
 import Home from 'assets/icons/home.svg';
+import People from 'assets/icons/people.svg';
 import SadBrowser from 'assets/icons/sad-browser.svg';
 import ThemeDark from 'assets/icons/theme-dark.svg';
 import ThemeLight from 'assets/icons/theme-light.svg';
@@ -13,6 +14,7 @@ import TypeScript from 'assets/icons/topics/typescript.svg';
 const iconTypes = {
   github: GitHub,
   home: Home,
+  people: People,
   'sad-browser': SadBrowser,
   'theme-dark': ThemeDark,
   'theme-light': ThemeLight,

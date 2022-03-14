@@ -5,7 +5,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { useStore } from 'hooks/useStore';
 import { CodeSnippet, Note, PageHeader, Separator } from 'components/ui';
-import { getTopic, getTopicsAvailable } from 'utils/topic';
+import { getTopic, getTopicsAvailable } from 'utils/content';
 
 const components = {
   CodeSnippet,

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { Icon } from 'components/ui';
-import { ExternalLink } from './Link';
+import { ExternalLink, InternalLink } from './Link';
 import styles from './Menu.module.scss';
 
 const DynamicThemeSwitcher = dynamic<unknown>(
@@ -15,6 +15,12 @@ export const SecondaryMenu = () => {
     <ul className={styles.component}>
       <li>
         <DynamicThemeSwitcher />
+      </li>
+      <li>
+        <InternalLink href="/kozremukodes">
+          <Icon name="people" />
+          Közreműködés
+        </InternalLink>
       </li>
       <li>
         <ExternalLink href="https://github.com/balazspeczeli/cleancode-hu">

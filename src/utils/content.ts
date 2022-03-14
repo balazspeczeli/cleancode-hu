@@ -17,6 +17,10 @@ export const getTopicsAvailable = () => {
     .map((filename) => path.parse(filename).name);
 };
 
+const getPageTitle = (pageId: string) => {
+  return pagesJSON[pageId as keyof typeof pagesJSON];
+};
+
 const extractpageSections = (pageContents: string) => {
   const pageSections: PageSection[] = [];
 
@@ -34,7 +38,7 @@ const extractpageSections = (pageContents: string) => {
 export const getTopic = async (topicId: string) => {
   const fullPath = path.join(topicsDirectory, topicId + '.mdx');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const title = pagesJSON[topicId as keyof typeof pagesJSON];
+  const title = getPageTitle(topicId);
   const sections = extractpageSections(fileContents);
   const { compiledSource } = await serialize(fileContents, {
     mdxOptions: {
@@ -47,4 +51,12 @@ export const getTopic = async (topicId: string) => {
   });
 
   return { content: compiledSource, title, sections };
+};
+
+export const getPageContent = async (pageId: string) => {
+  const fullPath = path.join(contentDirectory, pageId + '.mdx');
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const title = getPageTitle(pageId);
+  const { compiledSource } = await serialize(fileContents);
+  return { content: compiledSource, title };
 };
