@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { PageSection } from 'types';
 import type { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
+import { useCurrentPageId } from 'hooks/useCurrentPageId';
 import { useStore } from 'hooks/useStore';
 import { CodeSnippet, Note, PageHeader, Separator } from 'components/ui';
 import { getTopic, getTopicsAvailable } from 'utils/content';
@@ -21,12 +22,8 @@ type TopicPageProps = {
 };
 
 const TopicPage = ({ topicId, title, content, sections }: TopicPageProps) => {
-  const setCurrentPageId = useStore((state) => state.setCurrentPageId);
+  useCurrentPageId(topicId);
   const setPageSections = useStore((state) => state.setPageSections);
-
-  useEffect(() => {
-    setCurrentPageId(topicId);
-  }, [setCurrentPageId, topicId]);
 
   useEffect(() => {
     setPageSections(sections);

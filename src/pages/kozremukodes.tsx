@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
 import type { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
-import { useStore } from 'hooks/useStore';
+import { useCurrentPageId } from 'hooks/useCurrentPageId';
 import { PageHeader } from 'components/ui';
 import { getPageContent } from 'utils/content';
 
@@ -11,11 +10,7 @@ type ContributionPageProps = {
 };
 
 const ContributionPage = ({ title, content }: ContributionPageProps) => {
-  const setCurrentPageId = useStore((state) => state.setCurrentPageId);
-
-  useEffect(() => {
-    setCurrentPageId('kozremukodes');
-  }, [setCurrentPageId]);
+  useCurrentPageId('kozremukodes');
 
   return (
     <>
