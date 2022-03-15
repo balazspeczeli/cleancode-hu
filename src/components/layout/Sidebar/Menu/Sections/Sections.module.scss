@@ -33,6 +33,7 @@
   }
 
   .link {
+    display: block;
     color: var(--color-sidebar-text);
     opacity: 0.5;
     transition: opacity 0.25s;
