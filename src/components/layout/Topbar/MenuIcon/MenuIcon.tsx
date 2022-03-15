@@ -1,8 +1,8 @@
 import styles from './MenuIcon.module.scss';
 
-interface MenuIconProps {
+type MenuIconProps = {
   onClick: () => void;
-}
+};
 
 export const MenuIcon = ({ onClick }: MenuIconProps) => {
   return (

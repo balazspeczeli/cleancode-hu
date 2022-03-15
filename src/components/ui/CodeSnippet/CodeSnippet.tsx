@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import styles from './CodeSnippet.module.scss';
 
-interface CodeSnippetProps {
+type CodeSnippetProps = {
   children: React.ReactNode;
   recommended?: boolean;
   'not-recommended'?: boolean;
-}
+};
 
 export const CodeSnippet = ({
   children,
