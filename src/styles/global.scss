@@ -14,11 +14,13 @@
     --color-sidebar-background: #2a2a2a;
     --color-sidebar-text: #ffffff;
     --color-sidebar-line: #797979;
-    --color-icon-recommended: #66b350;
-    --color-icon-not-recommended: #cd5f5f;
+    --color-codesnippet-background: #f7f7f7;
+    --color-codesnippet-border: #a4a4a4;
+    --color-codesnippet-border-recommended: #66b350;
+    --color-codesnippet-border-not-recommended: #cd5f5f;
     --color-notification-background: #fefdeb;
     --color-notification-border-left: #e7db01;
-    --color-code-background: #f7f7f7;
+
     --color-separator-line: #e2e2e2;
     --color-separator-icon: #d2d2d2;
   }
@@ -33,11 +35,12 @@
     --color-sidebar-background: #040404;
     --color-sidebar-text: #ffffff;
     --color-sidebar-line: #797979;
-    --color-icon-recommended: #498638;
-    --color-icon-not-recommended: #a33a3a;
+    --color-codesnippet-background: #000000;
+    --color-codesnippet-border: #858585;
+    --color-codesnippet-border-recommended: #32841a;
+    --color-codesnippet-border-not-recommended: #a33a3a;
     --color-notification-background: #3a362a;
     --color-notification-border-left: #989783;
-    --color-code-background: #000000;
     --color-separator-line: #e2e2e2;
     --color-separator-icon: #d2d2d2;
   }
@@ -71,6 +74,6 @@ a {
 // styling for inline code elements
 code:not([class*='language-']) {
   font-family: var(--font-family-code);
-  background: var(--color-code-background);
+  background: var(--color-codesnippet-background);
   padding: 2px 5px;
 }

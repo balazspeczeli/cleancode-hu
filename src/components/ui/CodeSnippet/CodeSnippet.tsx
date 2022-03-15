@@ -1,23 +1,25 @@
+import classNames from 'classnames';
 import styles from './CodeSnippet.module.scss';
-import RecommendedIcon from 'assets/icons/recommended.svg';
-import NotRecommendedIcon from 'assets/icons/not-recommended.svg';
 
 interface CodeSnippetProps {
   children: React.ReactNode;
-  recommended: boolean;
+  recommended?: boolean;
+  'not-recommended'?: boolean;
 }
 
-export const CodeSnippet = ({ children, recommended }: CodeSnippetProps) => {
-  const icon = recommended ? (
-    <RecommendedIcon className={styles.green} />
-  ) : (
-    <NotRecommendedIcon className={styles.red} />
-  );
-
+export const CodeSnippet = ({
+  children,
+  recommended,
+  'not-recommended': notRecommended,
+}: CodeSnippetProps) => {
   return (
-    <div className={styles.component}>
+    <div
+      className={classNames(styles.component, {
+        [styles.recommended]: recommended,
+        [styles['not-recommended']]: notRecommended,
+      })}
+    >
       {children}
-      {icon}
     </div>
   );
 };
