@@ -1,6 +1,6 @@
 import Link from 'next/link';
+import MenuIcon from 'assets/icons/menu.svg';
 import { useStore } from 'hooks/useStore';
-import { MenuIcon } from './MenuIcon';
 import styles from './Topbar.module.scss';
 
 export const Topbar = () => {
@@ -9,7 +9,7 @@ export const Topbar = () => {
 
   return (
     <div className={styles.component}>
-      <MenuIcon onClick={toggleSidebar} />
+      <MenuIcon onClick={toggleSidebar} className={styles.menu} />
       <div className={styles.title} onClick={closeSidebar}>
         <Link href="/">cleancode.hu</Link>
       </div>
