@@ -8,12 +8,20 @@ export const getPageTitle = (pageId: string) => {
   return pagesJSON[pageId as PageId];
 };
 
-export const buildPageTitle = (pageId: string) => {
-  if (pageId === 'index' || getPageTitle(pageId) === undefined) {
-    return meta.title;
+export const buildPageTitle = (pageId: string | null) => {
+  const siteTitle = meta.title;
+
+  if (!pageId || pageId === 'index') {
+    return siteTitle;
   }
 
-  return `${meta.title} - ${getPageTitle(pageId)}`;
+  const pageTitle = getPageTitle(pageId);
+
+  if (!pageTitle) {
+    return siteTitle;
+  }
+
+  return `${siteTitle} - ${pageTitle}`;
 };
 
 export const setLocationHash = (hash: string) => {

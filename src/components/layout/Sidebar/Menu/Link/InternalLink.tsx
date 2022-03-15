@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useStore } from 'hooks/useStore';
 import styles from './Link.module.scss';
 
-const isLinkActive = (href: string, currentPageId: string | undefined) => {
+const isLinkActive = (href: string, currentPageId: string | null) => {
   if (href === '/' && currentPageId === 'index') {
     return true;
   }
