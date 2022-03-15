@@ -17,8 +17,20 @@
   font-weight: 600;
   text-align: center;
   margin-top: 30px;
+}
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .illustration {
+    max-width: 300px;
+  }
+
+  .title {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .component {
+    height: calc(100vh - 2 * var(--padding-default) - var(--height-topbar));
   }
 }
